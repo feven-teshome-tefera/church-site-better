@@ -9,11 +9,7 @@ export interface paster {
   
 }
 
-let cachedPastors: paster[] | null = null;
-
 export async function loadPastors(): Promise<paster[]> {
-  if (cachedPastors) return cachedPastors;
-
   const supabase = getSupabaseClient();
   const { data, error } = await supabase
     .from("pasters")
@@ -21,10 +17,8 @@ export async function loadPastors(): Promise<paster[]> {
 
   if (error) {
     console.error("Error fetching pastors:", error);
-    cachedPastors = [];
-  } else {
-    cachedPastors = data || [];
+    return [];
   }
 
-  return cachedPastors;
+  return data || [];
 }

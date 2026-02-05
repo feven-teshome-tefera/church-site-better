@@ -9,20 +9,14 @@ export interface ministries {
   link: string ;
 }
 
-let cachedMinistries: ministries[] | null = null;
-
 export async function loadMinistries(): Promise<ministries[]> {
-  if (cachedMinistries) return cachedMinistries;
-
   const supabase = getSupabaseClient();
   const { data, error } = await supabase.from("ministries").select("*");
 
   if (error) {
     console.error("Error fetching Ministries:", error);
-    cachedMinistries = [];
-  } else {
-    cachedMinistries = data || [];
+    return [];
   }
 
-  return cachedMinistries;
+  return data || [];
 }
