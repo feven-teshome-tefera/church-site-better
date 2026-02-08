@@ -52,7 +52,7 @@ export default function HomePage() {
                 Faith, fellowship, and purpose for every generation.
               </h1>
               <p className="max-w-2xl text-lg text-foreground/70 md:text-xl">
-                Ethiopian Emmanuel Baptist Church is a welcoming community where prayer, worship, and service shape how
+                Addis ababa Emmanuel Baptist Church is a welcoming community where prayer, worship, and service shape how
                 we live and love.
               </p>
               <div className="flex flex-wrap gap-3">
